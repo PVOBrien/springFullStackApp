@@ -14,25 +14,25 @@ public class AlbumController {
     public String showAlbums(Model m){
         ArrayList<Album> albums = new ArrayList<>();
         albums.add( new Album(
-                "Duel of the Fates",
+                "Star Wars: The Phantom Menace",
                 "John Williams",
-                1,
-                254,
+                17,
+                4_463,
                 "https://upload.wikimedia.org/wikipedia/en/c/cc/John_Williams_%E2%80%93_Duel_Of_The_Fates_%28Promotional_Single_Artwork%29.jpg"
         ));
         albums.add(new Album(
-                "Baba Yetu",
+                "Calling All Dawns",
                 "Christopher Tin",
-                1,
-                210,
+                12,
+                2_756,
                 "https://m.media-amazon.com/images/I/91yAHEkB-fL._SS500_.jpg"
         ));
         albums.add(new Album(
-                "Into the West",
-                "Annie Lennox",
-                1,
-                275,
-                "https://vignette.wikia.nocookie.net/lotr/images/e/ed/Intothewest.jpg/revision/latest?cb=20150330155642"
+                "The Lord of the Rings: Return of the King",
+                "Howard Shore",
+                19,
+                4325,
+                "https://images-na.ssl-images-amazon.com/images/I/91%2Bni21hctL._SY355_.jpg"
         ));
         m.addAttribute("albumsToShow", albums);
         return "albumsPageToShow";
