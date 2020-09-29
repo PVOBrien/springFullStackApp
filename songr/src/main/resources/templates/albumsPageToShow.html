@@ -8,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 </head>
 <body>
-    <p>HOWZIT</p>
+<!--    <p>HOWZIT</p>-->
     <div th:each="album : ${albumsToShow}">
         <h1 th:text=" 'Album Title: ' + ${album.title}"></h1>
         <h2 th:text="${album.artist}"></h2>

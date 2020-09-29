@@ -2,11 +2,11 @@ package com.pvobrien.songr;
 
 public class Album {
 
-    public String title;
-    public String artist;
-    public int songCount;
-    public int length;
-    public String imageUrl;
+    private String title;
+    private String artist;
+    private int songCount;
+    private int length;
+    private String imageUrl;
 
     public String getTitle() {
         return title;

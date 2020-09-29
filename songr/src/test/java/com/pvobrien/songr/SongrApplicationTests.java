@@ -15,6 +15,9 @@ class SongrApplicationTests {
 	@Test
 	public void testAlbumConstructor() {
 		Album testAlbum = new Album("Leeroy Jenkins", "WoWers", 1,13, "https://cdn.gamer-network.net/2020/metabomb/leeroyfull.jpg");
-		assertEquals("Leeroy Jenkins", testAlbum.title);
+		assertEquals("Leeroy Jenkins", testAlbum.getTitle());
+		assertEquals("WoWers",testAlbum.getArtist());
+		assertEquals(1,testAlbum.getSongCount());
+		assertEquals("https://cdn.gamer-network.net/2020/metabomb/leeroyfull.jpg", testAlbum.getImageUrl());
 	}
 }
