@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.view.RedirectView;
 
+//import java.sql.Array;
 import java.util.ArrayList;
 
 @Controller
@@ -16,13 +17,13 @@ public class AlbumController {
     public AlbumRepository albumRepository;
 
     @PostMapping("/albums")
-    public RedirectView addAlbum(String title, String artist, int songCount, int length, String imageURL){
+    public RedirectView addAlbum(String title, String artist, int songCount, int length, String imageUrl){
         Album newAlbum = new Album(
                 title,
                 artist,
                 songCount,
                 length,
-                imageURL
+                imageUrl
         );
 
         albumRepository.save(newAlbum);
@@ -31,29 +32,33 @@ public class AlbumController {
 
     @GetMapping("/albums")
     public String showAlbums(Model m){
-        ArrayList<Album> albums = new ArrayList<>();
-        albums.add( new Album(
-                "Star Wars: The Phantom Menace",
-                "John Williams",
-                17,
-                4_463,
-                "https://upload.wikimedia.org/wikipedia/en/c/cc/John_Williams_%E2%80%93_Duel_Of_The_Fates_%28Promotional_Single_Artwork%29.jpg"
-        ));
-        albums.add(new Album(
-                "Calling All Dawns",
-                "Christopher Tin",
-                12,
-                2_756,
-                "https://m.media-amazon.com/images/I/91yAHEkB-fL._SS500_.jpg"
-        ));
-        albums.add(new Album(
-                "The Lord of the Rings: Return of the King",
-                "Howard Shore",
-                19,
-                4325,
-                "https://images-na.ssl-images-amazon.com/images/I/91%2Bni21hctL._SY355_.jpg"
-        ));
+//        ArrayList<Album> albums = new ArrayList<>();
+
+//        albums.add( new Album(
+//                "Star Wars: The Phantom Menace",
+//                "John Williams",
+//                17,
+//                4_463,
+//                "https://upload.wikimedia.org/wikipedia/en/c/cc/John_Williams_%E2%80%93_Duel_Of_The_Fates_%28Promotional_Single_Artwork%29.jpg"
+//        ));
+//        albums.add(new Album(
+//                "Calling All Dawns",
+//                "Christopher Tin",
+//                12,
+//                2_756,
+//                "https://m.media-amazon.com/images/I/91yAHEkB-fL._SS500_.jpg"
+//        ));
+//        albums.add(new Album(
+//                "The Lord of the Rings: Return of the King",
+//                "Howard Shore",
+//                19,
+//                4325,
+//                "https://images-na.ssl-images-amazon.com/images/I/91%2Bni21hctL._SY355_.jpg"
+//        ));
+        ArrayList<Album> albums = (ArrayList<Album>) albumRepository.findAll();
+
         m.addAttribute("albumsToShow", albums);
+
         return "albumsPageToShow";
     }
 }
