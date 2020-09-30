@@ -8,7 +8,18 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 </head>
 <body>
-<!--    <p>HOWZIT</p>-->
+
+<form action="/albums" method="post">
+    <input type="text" name="title" placeholder="Place Album Title Here">
+    <input type="text" name="artist" placeholder="Place Artist Here">
+    <input type="number" name="songCount" placeholder="Place the # of Songs Here">
+    <input type="number" name="length" placeholder="Seconds of Song here">
+    <input type="text" name="imageUrl" placeholder="Image URL">
+
+    <input type="submit">
+
+</form>
+
     <div th:each="album : ${albumsToShow}">
         <h1 th:text=" 'Album Title: ' + ${album.title}"></h1>
         <h2 th:text="${album.artist}"></h2>
