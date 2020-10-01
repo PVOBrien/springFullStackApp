@@ -15,9 +15,11 @@ public class SongController {
     SongRepository songRepository;
 
     @PostMapping("/song")
-    public RedirectView addSong(String title, long AlbumId) {
-        Album thisOne = albumRepository.getOne(AlbumId); // getOne(AlbumId)
-        Song thisSong = new Song(title, 10, 3, thisOne); // length, trackNumber, thisOne
+    public RedirectView addSong(String title, long albumId, int trackNumber, int trackDuration) { //these need to match what is on the form!!!
+        Album thisOne = albumRepository.getOne(albumId); // getOne(AlbumId)
+
+        Song thisSong = new Song(title, trackDuration, trackNumber, thisOne); // length, trackNumber, thisOne
+        songRepository.save(thisSong);
 
         return new RedirectView("/albums");
     }

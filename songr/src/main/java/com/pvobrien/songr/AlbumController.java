@@ -15,8 +15,16 @@ public class AlbumController {
     @Autowired // connecting to and creating necessary stuff in the db
     public AlbumRepository albumRepository;
 
+//    @Autowired
+//    public SongrApplication songRepository;
+
     @PostMapping("/albums")
-    public RedirectView addAlbum(String title, String artist, int songCount, int length, String imageUrl){
+    public RedirectView addAlbum(String title,
+                                 String artist,
+                                 int songCount,
+                                 int length,
+                                 String imageUrl)
+    {
         Album newAlbum = new Album(
                 title,
                 artist,

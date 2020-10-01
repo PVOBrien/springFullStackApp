@@ -16,3 +16,9 @@ after pulling down the code from https://github.com/PVOBrien/springFullStackApp
 - hello world greeting on "/hello" route.
 - /capitalize/\<your words\> will return those words capitalized.
 - localhost:8080/albums shows three albums (hardcoded).
+
+## Lab 13 Functionality
+
+- wired many-to-one relational database from songs to album
+- included fields to input songs details, that is saved to the songRepository, and is persistent
+- _TODO_ finish route to Album view with album and song details, and be able to add songs from that page also.
