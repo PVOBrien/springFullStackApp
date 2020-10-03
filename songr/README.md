@@ -2,23 +2,41 @@
 
 ## How to run
 
-after pulling down the code from https://github.com/PVOBrien/springFullStackApp
- - from the root (or, the folder with the gradlew file) run ./gradlew bootRun
-    - go to localhost:8080 to land on the homepage.
-    - go to localhost:8080/capitalize/\<_your text here_\> to return \<_your text here_\> completely capitalized
-    - go to localhost:8080/albums/ to see three albums displayed
- 
- - ./gradlew test to test that the Album constructor and its getters and setters are working.
+After pulling down the code from https://github.com/PVOBrien/springFullStackApp:
+
+This app uses heroku postgres and as such will need to wired up to a heroku app (and I don't know how to hide my username and password yet) :yikes:.
+As such it should run under my instance and I understand this is bad practice.
+
+TODO: [ ] find the dotenv equivalent for SpringBoot / java.
+
+ELSE (after I find the proper dotenv-alike):
+
+- Go to your heroku 
+- Create an app
+- Go to resources
+ - search Heroku Postgres
+ - deploy it to the app
+ - go to the Heroku Postrgres -> Settings -> View Credentials
+ - in your application.properties in the src/main/resources set these properties up replacing <###> with the appropriate field from your Heroku Settings credential fields.
+   - spring.datasource.url=jdbc:postgresql://<HOST>:<PORT>/<DATABASE>
+   - spring.datasource.username=<USER>
+   - spring.datasource.password=<PASSWORD>
+
+After creating the Heroku Postrgres Database:
+
+   - from the root (or, the folder with the gradlew file) run ./gradlew bootRun 
+   - ./gradlew test to test that the Album constructor and its getters and setters are working.
  
 ## Functionality
 
 - Spring app will load to a splash screen.
 - hello world greeting on "/hello" route.
 - /capitalize/\<your words\> will return those words capitalized.
-- localhost:8080/albums shows three albums (hardcoded).
+- localhost:8080/albums allows a user to input details for an album, and displays it.
+- http://localhost:8080/songsalbum/#? will return an album's info (if an album exists at that #). You can return back to /albums from the top of the page.
 
 ## Lab 13 Functionality
 
-- wired many-to-one relational database from songs to album
-- included fields to input songs details, that is saved to the songRepository, and is persistent
-- _TODO_ finish route to Album view with album and song details, and be able to add songs from that page also.
+- wired many-to-one relational database from songs to album, and one to many from albums to song.
+- included fields to input songs details, that is saved to the songRepository, and is persistent.
+- upon album or song add, an alert appears to confirm the item has been added. Accomplished via <script></script at end of body in albumsPageToShow.html.

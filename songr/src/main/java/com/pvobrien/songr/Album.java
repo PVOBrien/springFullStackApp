@@ -1,9 +1,8 @@
 package com.pvobrien.songr;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Album {
@@ -11,6 +10,10 @@ public class Album {
     @Id // this is the id SERIAL PRIMARY KEY
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     long id;
+
+    @OneToMany(mappedBy = "album",cascade = CascadeType.ALL, orphanRemoval = true)
+
+    public List<Song> tracks = new ArrayList<>();
 
     private String title;
     private String artist;
@@ -66,8 +69,12 @@ public class Album {
     public long getId() {
         return id;
     }
-
     public void setId(long id) {
         this.id = id;
+    }
+
+    public List<Song> getTracks() {return tracks;}
+    public void setTracks(List<Song> tracks) {
+        this.tracks = tracks;
     }
 }

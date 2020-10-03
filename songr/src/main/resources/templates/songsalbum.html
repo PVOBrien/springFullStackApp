@@ -8,17 +8,16 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 </head>
 <body>
-    <p>Howdy</p>
+    <a href="/albums">Back to Albums</a>
     <div th:text="${album.title}"></div>
-        <h1 th:text="${album.artist}"></h1>
-        <h2 th:text="${album.songCount}"></h2>
-        <h2 th:text="${album.length}"></h2>
-        <img th:src="${album.imageUrl}">
-        <div th:if="${album.song.size > 0}" th:text="${album.song.get}">
-            <div th:each="song : ${albums.song}">
-                <p th:text="${song.title}"></p>
-                <p th:text="${song.trackNumber}"></p>
-                <p th:text="${song.trackDuration}"></p>
+        <h1 th:text=" 'Album Artist: ' + ${album.getArtist()}"></h1>
+        <h2 th:text=" 'Track Count: ' + ${album.getSongCount()}"></h2>
+        <h2 th:text="${album.getLength()}"></h2>
+        <img th:src="${album.getImageUrl()}">
+        <div th:if="${album.getTracks().size() > 0}" th:each="track : ${album.getTracks()}">
+                <p th:text="${track.getTitle()}"></p>
+                <p th:text="${track.getTrackNumber()}"></p>
+                <p th:text="${track.getLength()}"></p>
             </div>
         </div>
 </body>
