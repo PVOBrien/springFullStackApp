@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Songs in the Album</title>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+</head>
+<body>
+    <p>Howdy</p>
+    <div th:text="${album.title}"></div>
+        <h1 th:text="${album.artist}"></h1>
+        <h2 th:text="${album.songCount}"></h2>
+        <h2 th:text="${album.length}"></h2>
+        <img th:src="${album.imageUrl}">
+        <div th:if="${album.song.size > 0}" th:text="${album.song.get}">
+            <div th:each="song : ${albums.song}">
+                <p th:text="${song.title}"></p>
+                <p th:text="${song.trackNumber}"></p>
+                <p th:text="${song.trackDuration}"></p>
+            </div>
+        </div>
+</body>
+</html>

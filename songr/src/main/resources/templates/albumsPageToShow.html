@@ -26,7 +26,9 @@
         <h2 th:text="${album.length}"></h2>
         <h2>Album Artwork</h2>
         <img th:src="${album.imageUrl}">
-        <div></div>
+        <form th:action=" '/songsalbum/' + ${album.id}" method="GET">Click Here to See Album
+            <input type="submit">
+        </form> // This is directly connected to the @GetMapping on SongController ("route") also method=GET includes @GetMapping. whodathunk?
 
         <form action="/song" method="POST">
             <input type="hidden" name="albumId" th:value="${album.id}">
