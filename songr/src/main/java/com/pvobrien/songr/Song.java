@@ -10,11 +10,12 @@ public class Song {
     long id;
 
     @ManyToOne
-    public Album album;
 
-    public String title;
-    public int length;
-    public int trackNumber;
+    private Album album;
+
+    private String title;
+    private int length;
+    private int trackNumber;
 
     public Song(){}
 

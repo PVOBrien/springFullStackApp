@@ -15,7 +15,7 @@
     <input type="number" name="songCount" placeholder="Place the # of Songs Here">
     <input type="number" name="length" placeholder="Seconds of Song here">
     <input type="text" name="imageUrl" placeholder="Image URL">
-    <input type="submit">
+    <input id="albumAdd" onclick="added()" type="submit">
 
 </form>
 
@@ -26,15 +26,23 @@
         <h2 th:text="${album.length}"></h2>
         <h2>Album Artwork</h2>
         <img th:src="${album.imageUrl}">
-        <div></div>
+        <form th:action=" '/songsalbum/' + ${album.id}" method="GET">
+            <input type="submit" value="Album Info">
+        </form> <!-- This is directly connected to the @GetMapping on SongController ("route") also method=GET includes @GetMapping. whodathunk? -->
 
         <form action="/song" method="POST">
             <input type="hidden" name="albumId" th:value="${album.id}">
             Title : <input type="text" name="title" placeholder="Title">
             Track Number : <input type="number" name="trackNumber" placeholder="Track #">
             Duration : <input type="number" name="trackDuration" placeholder="Duration">
-            <input type="submit" value="add">
+            <input id="songAdd" type="submit" onclick="added()" value="Add Song to Album" >
         </form>
     </div>
 </body>
+
+<script>
+    function added() {
+        alert ("The item has been added.");
+    }
+</script>
 </html>
