@@ -4,13 +4,6 @@
 
 After pulling down the code from https://github.com/PVOBrien/springFullStackApp:
 
-This app uses heroku postgres and as such will need to wired up to a heroku app (and I don't know how to hide my username and password yet) :yikes:.
-As such it should run under my instance and I understand this is bad practice.
-
-TODO: [ ] find the dotenv equivalent for SpringBoot / java.
-
-ELSE (after I find the proper dotenv-alike):
-
 - Go to your heroku 
 - Create an app
 - Go to resources
