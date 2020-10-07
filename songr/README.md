@@ -11,10 +11,11 @@ After pulling down the code from https://github.com/PVOBrien/springFullStackApp:
  - deploy it to the app
  - go to the Heroku Postrgres -> Settings -> View Credentials
  - in your application.properties in the src/main/resources set these properties up replacing <###> with the appropriate field from your Heroku Settings credential fields.
+ ```
    - spring.datasource.url=jdbc:postgresql://<HOST>:<PORT>/<DATABASE>
    - spring.datasource.username=<USER>
    - spring.datasource.password=<PASSWORD>
-
+```
 After creating the Heroku Postrgres Database:
 
    - from the root (or, the folder with the gradlew file) run ./gradlew bootRun 
